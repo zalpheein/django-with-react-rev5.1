@@ -41,16 +41,16 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # third party apps
+    'corsheaders',
     'rest_framework',
 
     # local apps
     'accounts',
     'instagram',
-
-
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
