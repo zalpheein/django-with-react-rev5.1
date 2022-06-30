@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # third party apps
+    'rest_framework',
 
     # local apps
     'accounts',
@@ -136,8 +137,13 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 
-
-
+# 레스트 프레임워크 퍼미션 인증을 정의 하여 
+# 로그인 사용자만 데이터에 접근하도록 제한
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES' : [
+        'rest_framework.permissions.IsAuthenticated',
+    ]
+}
 
 
 
