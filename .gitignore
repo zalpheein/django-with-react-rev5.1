@@ -1,4 +1,4 @@
 .vscode
 .idea
 db.sqlite3
-pycache
+__pycache__
