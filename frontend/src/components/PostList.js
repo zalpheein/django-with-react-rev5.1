@@ -1,6 +1,6 @@
 import React, { useEffect, useState  } from "react";
 import Axios from "axios";
-import Post from "Post";
+import Post from "./Post";
 
 
 const apiUrl = "http://127.0.0.1:8000/api/posts/";
@@ -30,7 +30,6 @@ function PostList() {
 
     return (
         <div>
-            <h1>PostList</h1>
             {postList.map(
                 // postList 단위가 아닌 post 단위로. 즉, 
                 // n개 post 가 postList를 구성하는 방식으로 사용하기를 권장
