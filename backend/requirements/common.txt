@@ -1,7 +1,8 @@
-django~=3.0.0
-djangorestframework
-django-cors-headers
-pillow
+django~=3.2.0
+djangorestframework==3.13.1
+djangorestframework-jwt==1.11.0
+django-cors-headers==3.13.0
+pillow==9.1.1
 
 
 

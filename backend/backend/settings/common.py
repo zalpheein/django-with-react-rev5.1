@@ -140,9 +140,11 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 # 레스트 프레임워크 퍼미션 인증을 정의 하여 
 # 로그인 사용자만 데이터에 접근하도록 제한
 REST_FRAMEWORK = {
-    'DEFAULT_PERMISSION_CLASSES' : [
-        'rest_framework.permissions.IsAuthenticated',
-    ]
+    'DEFAULT_PERMISSION_CLASSES' : ['rest_framework.permissions.IsAuthenticated',],
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+            'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
+            'rest_framework.authentication.SessionAuthentication',
+    ],
 }
 
 
