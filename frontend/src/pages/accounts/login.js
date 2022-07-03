@@ -17,8 +17,10 @@ export default function Login() {
         console.log("onFinish : ", values);
 
         async function fn() {
+            // 사용자 입력(response) 에서 username, password 를 구분하여 저장
             const { username, password } = values;
 
+            // 에러필드 초기화
             setFieldErrors({});
 
             const data = { username, password };
@@ -39,8 +41,9 @@ export default function Login() {
                 // const jwtToken = response.data.token 과 동일한 의미
 
                 const { data : { token: jwtToken } } = response;
-                console.log("jwtToken : ", jwtToken);
+                // console.log("jwtToken : ", jwtToken);
 
+                // 토큰값 저장
                 setJwtToken(jwtToken);
 
                 // 알림 박스
