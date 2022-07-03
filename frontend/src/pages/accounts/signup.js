@@ -58,49 +58,43 @@ function Signup() {
                           {}
                         )
                       );
-
-
-
                 }
             }
-    
         }
-
         fn();
-
-
     };
 
     return (
         <Form
-        labelCol={{ span: 8 }}
-        wrapperCol={{ span: 16 }}
+        {...layout}
         onFinish={onFinish}
         // onFinishFailed={onFinishFailed}
-        autoComplete="off"
+        
         >
             <Form.Item
-            label="Username"
-            name="username"
-            rules={[{ required: true, message: 'Please input your username!' },
-                    { min:5, message: "5글자 입력해주세요."}
-            ]}
-            hasFeedback
-            {...fieldErrors.username}
+                label="Username"
+                name="username"
+                rules={[{ required: true, message: 'Please input your username!' },
+                        { min:5, message: "5글자 입력해주세요."}
+                ]}
+                hasFeedback
+                {...fieldErrors.username}
             >
                 <Input />
             </Form.Item>
     
             <Form.Item
-            label="Password"
-            name="password"
-            rules={[{ required: true, message: 'Please input your password!' }]}
-            {...fieldErrors.password}
+                label="Password"
+                name="password"
+                rules={[{ required: true, message: 'Please input your password!' }]}
+                {...fieldErrors.password}
             >
                 <Input.Password />
             </Form.Item>
     
-            <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
+            <Form.Item 
+                {...tailLayout}
+            >
                 <Button type="primary" htmlType="submit">
                     Submit
                 </Button>
@@ -108,5 +102,16 @@ function Signup() {
       </Form>
     );
 }
+
+
+const layout = {
+    labelCol: { span: 8 },
+    wrapperCol: { span: 16 }
+};
+  
+  const tailLayout = {
+    wrapperCol: { offset: 8, span: 16 }
+};
+
 
 export default Signup;

@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 import os
 from os.path import abspath, dirname, join
+from datetime import timedelta
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = dirname(dirname(dirname(abspath(__file__))))
@@ -141,13 +142,22 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 # 로그인 사용자만 데이터에 접근하도록 제한
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES' : ['rest_framework.permissions.IsAuthenticated',],
+    # djangorestframework-jwt 설치 후
     'DEFAULT_AUTHENTICATION_CLASSES': [
             'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
             'rest_framework.authentication.SessionAuthentication',
     ],
 }
 
-
+# djangorestframework-jwt 설치 후
+JWT_AUTH = {
+    'JWT_SECRET_KEY': SECRET_KEY,  # FIXME: JWT_SECRET_KEY
+    'JWT_ALGORITHM': "HS256",
+    'JWT_ALLOW_REFRESH': True,
+    'JWT_EXPIRATION_DELTA': timedelta(days=7),
+    # 토근 발급후 얼마의 시간 동안 허용 할것인가
+    'JWT_REFRESH_EXPIRATION_DELTA': timedelta(days=28),
+}
 
 
 
